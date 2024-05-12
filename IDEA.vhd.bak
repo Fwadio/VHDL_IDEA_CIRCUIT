@@ -1,0 +1,17 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity IDEA is
+	port(A0,A1: in std_logic_vector(3 downto 0);
+		  B: in std_logic_vector(7 downto 0);
+		  S: in std_logic;
+		  Y: out std_logic_vector(7 downto 0));
+end IDEA;
+
+architecture Desc_IDEA of IDEA is
+	Signal X: std_logic_vector(7 downto 0);
+	begin
+		X <= A1 & A0;
+		Y <= X when S='1' else B;
+	end IDEA;
